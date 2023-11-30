@@ -1,0 +1,37 @@
+server:
+  port: 6703
+  error:
+    include-message: always
+
+logging:
+  level:
+    ROOT: INFO
+    com:
+      siseth:
+        edwin: DEBUG
+    org:
+      hibernate:
+        SQL: INFO
+  file:
+    name: logs/edwin.log
+
+springdoc:
+  api-docs:
+    path: /api/weather-station/edwin/v3/api-docs
+
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    preferIpAddress: true
+    hostname: localhost
+spring:
+  application:
+    name: edwin-weather-station-service
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: Europe/Warsaw
